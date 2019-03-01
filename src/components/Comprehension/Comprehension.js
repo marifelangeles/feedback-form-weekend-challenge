@@ -2,19 +2,14 @@ import React, { Component } from 'react';
 // import axios from 'axios';
 import { connect } from 'react-redux';
 
-class Feelings extends Component {
-
-    handleClick = () => {
-        console.log('next clicked');
-        this.props.history.push('/comprehension');
-    }
+class Comprehension extends Component {
     render() {
         return (
             <div>
-                <h2>How are you feeling today?</h2>
+                <h2>How well are you understanding the content?</h2>
                 <div>
                     <label>
-                        <input type="radio" name="feelings" value="1"/>1
+                        <input type="radio" name="feelings" value="1" />1
                     </label>
                     <label>
                         <input type="radio" name="feelings" value="2" />2
@@ -28,9 +23,9 @@ class Feelings extends Component {
                     <label>
                         <input type="radio" name="feelings" value="5" />5
                     </label>
-                    <button onClick={this.handleClick}>Next</button>
+                    <button>Next</button>
                 </div>
-                
+
             </div>
         );
     }
@@ -39,4 +34,4 @@ class Feelings extends Component {
 const mapReduxStateToProps = (reduxState) => {
     return reduxState;
 }
-export default connect(mapReduxStateToProps)(Feelings);
+export default connect(mapReduxStateToProps)(Comprehension);
