@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 // import axios from 'axios';
 import { connect } from 'react-redux';
 
-class Comprehension extends Component {
+class Support extends Component {
     handleClick = () => {
         console.log('next clicked');
-        this.props.history.push('/support');
+        this.props.history.push('/comments');
     }
 
     render() {
         return (
             <div>
-                <h2>How well are you understanding the content?</h2>
+                <h2>How well are you being supported?</h2>
                 <div>
                     <label>
                         <input type="radio" name="feelings" value="1" />1
@@ -39,4 +39,4 @@ class Comprehension extends Component {
 const mapReduxStateToProps = (reduxState) => {
     return reduxState;
 }
-export default connect(mapReduxStateToProps)(Comprehension);
+export default connect(mapReduxStateToProps)(Support);
