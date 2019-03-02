@@ -11,6 +11,10 @@ class Feelings extends Component {
 
     handleClick = () => {
         console.log('/feelings next clicked');
+        // dispatch feeling input
+        let action = {type: 'SET_FEELING', payload: this.state.input}
+        this.props.dispatch(action);
+        // direct user to comprehension form
         this.props.history.push('/comprehension');
     }
 
