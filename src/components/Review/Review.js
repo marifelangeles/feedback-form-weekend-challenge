@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 class Review extends Component {
 
+
     handleClick = () => {
         console.log('/review submit clicked');
         this.props.history.push('/success');
@@ -14,7 +15,7 @@ class Review extends Component {
             <div>
                 <h2>Review Your Feedback</h2>
                 <ul>
-                    <li>Feelings: 0</li>
+                    <li>Feelings: {this.props.feelings}</li>
                     <li>Comprehension: 0</li>
                     <li>Support: 0</li>
                     <li>Comments: 0</li>
@@ -28,4 +29,5 @@ class Review extends Component {
 const mapReduxStateToProps = (reduxState) => {
     return reduxState;
 }
+
 export default connect(mapReduxStateToProps)(Review);
