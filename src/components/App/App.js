@@ -7,6 +7,11 @@ import {connect} from 'react-redux';
 //import components
 import Feelings from '../Feelings/Feelings';
 import Comprehension from '../Comprehension/Comprehension';
+import Support from '../Support/Support';
+import Comments from '../Comments/Comments';
+import Review from '../Review/Review';
+import Success from '../Success/Success'
+
 
 
 class App extends Component {
@@ -17,24 +22,16 @@ class App extends Component {
           <h1>Feedback!</h1>
           <p>Don't forget it!</p>
         </header>
-        
         <Router>
           <div>
             <Route exact path='/' component={Feelings}/>
             <Route exact path='/comprehension' component={Comprehension} />
-            <Route exact path='/support' />
-            <Route exact path='/comments' />
+            <Route exact path='/support' component={Support}/>
+            <Route exact path='/comments' component={Comments} />
+            <Route exact path='/review' component={Review} />
+            <Route exact path='/success' component={Success} />
           </div>
         </Router>
-        <div>
-          <h2>Review Your Feedback</h2>
-          <ul>
-            <li>Feelings: 0</li>
-            <li>Comprehension: 0</li>
-            <li>Support: 0</li>
-            <li>Comments: 0</li>
-          </ul>
-        </div>
       </div>
     );
   }

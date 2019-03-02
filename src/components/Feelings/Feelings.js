@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
 import { connect } from 'react-redux';
+import Review from '../Review/Review';
 
 class Feelings extends Component {
 
     handleClick = () => {
-        console.log('next clicked');
+        console.log('/feelings next clicked');
         this.props.history.push('/comprehension');
     }
     render() {
@@ -30,7 +31,7 @@ class Feelings extends Component {
                     </label>
                     <button onClick={this.handleClick}>Next</button>
                 </div>
-                
+            <Review />
             </div>
         );
     }
