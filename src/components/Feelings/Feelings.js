@@ -5,15 +5,26 @@ import Review from '../Review/Review';
 
 class Feelings extends Component {
 
+    state = {
+        input: '',
+    }
+
     handleClick = () => {
         console.log('/feelings next clicked');
         this.props.history.push('/comprehension');
+    }
+
+    handleChange = (event) => {
+        console.log(event.target.value);
+        this.setState({
+            input: event.target.value
+        });
     }
     render() {
         return (
             <div>
                 <h2>How are you feeling today?</h2>
-                <div>
+                <div onChange={this.handleChange} >
                     <label>
                         <input type="radio" name="feelings" value="1"/>1
                     </label>
