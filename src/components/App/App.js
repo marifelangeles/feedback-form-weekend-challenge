@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 
 //import components
 import Feelings from '../Feelings/Feelings';
-import Comprehension from '../Comprehension/Comprehension';
+import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
 import Review from '../Review/Review';
@@ -25,7 +25,7 @@ class App extends Component {
         <Router>
           <div>
             <Route exact path='/' component={Feelings}/>
-            <Route exact path='/comprehension' component={Comprehension} />
+            <Route exact path='/understanding' component={Understanding} />
             <Route exact path='/support' component={Support}/>
             <Route exact path='/comments' component={Comments} />
             <Route exact path='/review' component={Review} />

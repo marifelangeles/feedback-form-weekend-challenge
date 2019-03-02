@@ -3,19 +3,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Review from '../Review/Review';
 
-class Feelings extends Component {
-
+class Understanding extends Component {
     state = {
         input: '',
     }
 
     handleClick = () => {
-        console.log('/feelings next clicked');
-        // dispatch feeling input
-        let action = {type: 'SET_FEELING', payload: this.state.input}
+        console.log('/understanding next clicked');
+        // dispatch understanding input
+        let action = { type: 'SET_UNDERSTANDING', payload: this.state.input }
         this.props.dispatch(action);
-        // direct user to understanding form
-        this.props.history.push('/understanding');
+        this.props.history.push('/support');
     }
 
     handleChange = (event) => {
@@ -27,26 +25,26 @@ class Feelings extends Component {
     render() {
         return (
             <div>
-                <h2>How are you feeling today?</h2>
-                <div onChange={this.handleChange} >
+                <h2>How well are you understanding the content?</h2>
+                <div onChange={this.handleChange}>
                     <label>
-                        <input type="radio" name="feelings" value="1"/>1
+                        <input type="radio" name="understanding" value="1" />1
                     </label>
                     <label>
-                        <input type="radio" name="feelings" value="2" />2
+                        <input type="radio" name="understanding" value="2" />2
                     </label>
                     <label>
-                        <input type="radio" name="feelings" value="3" />3
+                        <input type="radio" name="understanding" value="3" />3
                     </label>
                     <label>
-                        <input type="radio" name="feelings" value="4" />4
+                        <input type="radio" name="understanding" value="4" />4
                     </label>
                     <label>
-                        <input type="radio" name="feelings" value="5" />5
+                        <input type="radio" name="understanding" value="5" />5
                     </label>
                     <button onClick={this.handleClick}>Next</button>
                 </div>
-            <Review feelings={this.state.input}/>
+            <Review understanding={this.state.input}/>
             </div>
         );
     }
@@ -55,4 +53,4 @@ class Feelings extends Component {
 const mapReduxStateToProps = (reduxState) => {
     return reduxState;
 }
-export default connect(mapReduxStateToProps)(Feelings);
+export default connect(mapReduxStateToProps)(Understanding);

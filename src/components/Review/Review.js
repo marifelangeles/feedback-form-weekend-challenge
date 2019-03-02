@@ -16,7 +16,7 @@ class Review extends Component {
                 <h2>Review Your Feedback</h2>
                 <ul>
                     <li>Feelings: {this.props.feelings}</li>
-                    <li>Comprehension: 0</li>
+                    <li>Comprehension: {this.props.understanding}</li>
                     <li>Support: 0</li>
                     <li>Comments: 0</li>
                 </ul>
