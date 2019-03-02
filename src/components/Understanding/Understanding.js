@@ -22,6 +22,7 @@ class Understanding extends Component {
             input: event.target.value
         });
     }
+    
     render() {
         return (
             <div>

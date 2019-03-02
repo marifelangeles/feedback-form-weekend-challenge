@@ -17,7 +17,7 @@ class Review extends Component {
                 <ul>
                     <li>Feelings: {this.props.feelings}</li>
                     <li>Comprehension: {this.props.understanding}</li>
-                    <li>Support: 0</li>
+                    <li>Support: {this.props.support}</li>
                     <li>Comments: 0</li>
                 </ul>
                 <button onClick={this.handleClick}>Submit</button>

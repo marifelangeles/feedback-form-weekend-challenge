@@ -26,10 +26,21 @@ const understanding = (state = [], action) => {
     return state;
 }
 
+const support = (state = [], action) => {
+    console.log('support reducer hit');
+    if (action.type === 'SET_SUPPORT') {
+        console.log('SET_SUPPORT hit');
+        console.log(action.payload);
+        return action.payload;
+    }
+    return state;
+}
+
 const storeInstance = createStore( 
     combineReducers({
         feelings,
         understanding,
+        support,
     }),
     applyMiddleware(logger),
 )
