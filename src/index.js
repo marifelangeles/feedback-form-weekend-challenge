@@ -6,9 +6,9 @@ import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import logger from 'redux-logger';
 
-
 const result = (state = {}, action) => {
     if (action.type === 'UPDATE_FEEDBACK') {
+        // object of property names: feeling, understanding, support, comments
         return {...state, [action.propertyName]: action.payload }
     } else if (action.type === 'RESET_FEEDBACK') {
         return action.payload;

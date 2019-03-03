@@ -10,15 +10,24 @@ class Review extends Component {
         support: '',
         comments: '',
     }
+
+    handleClick = () => {
+        console.log('/review submit clicked');
+        // on submit, post current survey values to server
+        this.saveFeedback();
+        this.props.history.push('/success');
+    }
+
     saveFeedback = () => {
         console.log('in saveFeedback');
+        // expect object result with sub objects of property names
         axios({
             method: 'POST',
             url: '/feedback',
             data: this.props.reduxState.result
         }).then( result => {
             console.log('back from POST', result);
-            // clear redux state
+            // clear survey results for new feedback
             this.resetFeedback();
         }).catch(error => {
             console.log('error with POST /feedback', error);
@@ -28,15 +37,12 @@ class Review extends Component {
 
     resetFeedback = () => {
         console.log('reseting feedback');
+        // reset current result values to empty string
         let action = { type: 'RESET_FEEDBACK', payload: this.state}
         this.props.dispatch(action);
     }
 
-    handleClick = () => {
-        console.log('/review submit clicked');
-        this.saveFeedback();
-        this.props.history.push('/success');
-    }
+    
 
     render() {
         return (
