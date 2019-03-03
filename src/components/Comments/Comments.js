@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 // import axios from 'axios';
 import { connect } from 'react-redux';
 import Review from '../Review/Review';
+import HeaderForm from '../HeaderForm/HeaderForm';
+
 class Comments extends Component {
     
     handleClick = () => {
@@ -19,6 +21,7 @@ class Comments extends Component {
     render() {
         return (
             <div>
+                <HeaderForm />
                 <h2>Any comments you want to leave?</h2>
                 <div onChange={this.handleChange}>
                     <input type="text" placeholder="Leave comments here" />

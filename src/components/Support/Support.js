@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Review from '../Review/Review';
+import HeaderForm from '../HeaderForm/HeaderForm';
+
 
 class Support extends Component {
     
@@ -20,6 +22,7 @@ class Support extends Component {
     render() {
         return (
             <div>
+                <HeaderForm />
                 <h2>How well are you being supported?</h2>
                 <div onChange={this.handleChange}>
                     <label>
