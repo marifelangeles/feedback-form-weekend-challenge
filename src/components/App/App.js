@@ -10,7 +10,8 @@ import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
 import Review from '../Review/Review';
-import Success from '../Success/Success'
+import Success from '../Success/Success';
+import Admin from '../Admin/Admin';
 
 
 
@@ -30,6 +31,7 @@ class App extends Component {
             <Route exact path='/comments' component={Comments} />
             <Route exact path='/review' component={Review} />
             <Route exact path='/success' component={Success} />
+            <Route exact path='/admin' component={Admin} />
           </div>
         </Router>
       </div>
