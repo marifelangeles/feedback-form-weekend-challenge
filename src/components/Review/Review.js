@@ -42,19 +42,18 @@ class Review extends Component {
         this.props.dispatch(action);
     }
 
-    toggleSubmitButton = () => {
-        console.log('in toggleSubmitButton');
-        
-    }
     
 
     render() {
+        // convert objects to array in order to loop through entries in form
+        // https://zellwk.com/blog/looping-through-js-objects/
         let result = this.props.reduxState.result;
         console.log('result', result);
-        
         let resultEntries = Object.keys(result);
         console.log('resultEntries', resultEntries);
         
+        // check if all entries are complete
+        // if entry is incomplete, object will not be added to redux state
         let button;
         if (resultEntries < 4) {
             button = <button onClick={this.handleClick} disabled>Incomplete</button>
@@ -66,9 +65,9 @@ class Review extends Component {
 
         return (
             <div>
-                {/* <h2>Review Your Feedback</h2> */}
+                <h2>Review Your Feedback</h2>
                 <ul>
-                    {JSON.stringify(this.props.reduxState)}
+                    {/* {JSON.stringify(this.props.reduxState)} */}
                     <li>Feelings: {this.props.reduxState.result.feeling}</li>
                     <li>Comprehension: {this.props.reduxState.result.understanding}</li>
                     <li>Support: {this.props.reduxState.result.support}</li>
