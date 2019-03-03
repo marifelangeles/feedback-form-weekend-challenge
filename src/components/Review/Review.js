@@ -42,12 +42,31 @@ class Review extends Component {
         this.props.dispatch(action);
     }
 
+    toggleSubmitButton = () => {
+        console.log('in toggleSubmitButton');
+        
+    }
     
 
     render() {
+        let result = this.props.reduxState.result;
+        console.log('result', result);
+        
+        let resultEntries = Object.keys(result);
+        console.log('resultEntries', resultEntries);
+        
+        let button;
+        if (resultEntries < 4) {
+            button = <button onClick={this.handleClick} disabled>Incomplete</button>
+        } else {
+            button = <button onClick={this.handleClick}>Submit</button>
+        }
+        
+        
+
         return (
             <div>
-                <h2>Review Your Feedback</h2>
+                {/* <h2>Review Your Feedback</h2> */}
                 <ul>
                     {JSON.stringify(this.props.reduxState)}
                     <li>Feelings: {this.props.reduxState.result.feeling}</li>
@@ -55,7 +74,7 @@ class Review extends Component {
                     <li>Support: {this.props.reduxState.result.support}</li>
                     <li>Comments: {this.props.reduxState.result.comments}</li>
                 </ul>
-                <button onClick={this.handleClick}>Submit</button>
+                {button}
             </div>
         );
     }

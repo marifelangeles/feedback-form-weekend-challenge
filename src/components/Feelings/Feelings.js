@@ -40,6 +40,7 @@ class Feelings extends Component {
                     </label>
                     <button onClick={this.handleClick}>Next</button>
                 </div>
+                
             <Review />
             </div>
         );
