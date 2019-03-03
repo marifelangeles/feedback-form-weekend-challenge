@@ -10,9 +10,12 @@ import logger from 'redux-logger';
 const result = (state = {}, action) => {
     if (action.type === 'UPDATE_FEEDBACK') {
         return {...state, [action.propertyName]: action.payload }
-    } 
+    } else if (action.type === 'RESET_FEEDBACK') {
+        return action.payload;
+    }
     return state;
 }
+
 
 const storeInstance = createStore( 
     combineReducers({

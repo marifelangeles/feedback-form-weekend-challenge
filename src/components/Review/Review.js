@@ -4,7 +4,12 @@ import { connect } from 'react-redux';
 
 class Review extends Component {
     
-
+    state = {
+        feeling: '',
+        understanding: '',
+        support: '',
+        comments: '',
+    }
     saveFeedback = () => {
         console.log('in saveFeedback');
         axios({
@@ -13,11 +18,20 @@ class Review extends Component {
             data: this.props.reduxState.result
         }).then( result => {
             console.log('back from POST', result);
+            // clear redux state
+            this.resetFeedback();
         }).catch(error => {
             console.log('error with POST /feedback', error);
             alert('error with POST /feedback');
         })
     }
+
+    resetFeedback = () => {
+        console.log('reseting feedback');
+        let action = { type: 'RESET_FEEDBACK', payload: this.state}
+        this.props.dispatch(action);
+    }
+
     handleClick = () => {
         console.log('/review submit clicked');
         this.saveFeedback();
