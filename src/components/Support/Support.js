@@ -45,13 +45,14 @@ class Support extends Component {
                     </label>
                     <button onClick={this.handleClick}>Next</button>
                 </div>
-            <Review support={this.state.input}/>
+            <Review />
             </div>
         );
     }
 }
 
-const mapReduxStateToProps = (reduxState) => {
-    return reduxState;
-}
+const mapReduxStateToProps = (reduxState) => ({
+    reduxState
+});
+
 export default connect(mapReduxStateToProps)(Support);

@@ -30,13 +30,14 @@ class Comments extends Component {
                     <input type="text" placeholder="Leave comments here" />
                     <button onClick={this.handleClick}>Next</button>
                 </div>
-                <Review comments={this.state.input}/>
+                <Review />
             </div>
         );
     }
 }
 
-const mapReduxStateToProps = (reduxState) => {
-    return reduxState;
-}
+const mapReduxStateToProps = (reduxState) => ({
+    reduxState
+});
+
 export default connect(mapReduxStateToProps)(Comments);

@@ -15,10 +15,11 @@ class Review extends Component {
             <div>
                 <h2>Review Your Feedback</h2>
                 <ul>
-                    <li>Feelings: {this.props.feelings}</li>
-                    <li>Comprehension: {this.props.understanding}</li>
-                    <li>Support: {this.props.support}</li>
-                    <li>Comments: {this.props.comments}</li>
+                    {JSON.stringify(this.props.reduxState)}
+                    <li>Feelings: {this.props.reduxState.feelings}</li>
+                    <li>Comprehension: {this.props.reduxState.understanding}</li>
+                    <li>Support: {this.props.reduxState.support}</li>
+                    <li>Comments: {this.props.reduxState.comments}</li>
                 </ul>
                 <button onClick={this.handleClick}>Submit</button>
             </div>
@@ -26,8 +27,8 @@ class Review extends Component {
     }
 }
 
-const mapReduxStateToProps = (reduxState) => {
-    return reduxState;
-}
+const mapReduxStateToProps = (reduxState) => ({
+    reduxState
+});
 
 export default connect(mapReduxStateToProps)(Review);

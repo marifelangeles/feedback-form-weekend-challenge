@@ -46,13 +46,14 @@ class Feelings extends Component {
                     </label>
                     <button onClick={this.handleClick}>Next</button>
                 </div>
-            <Review feelings={this.state.input}/>
+            <Review />
             </div>
         );
     }
 }
 
-const mapReduxStateToProps = (reduxState) => {
-    return reduxState;
-}
+const mapReduxStateToProps = (reduxState) => ({
+    reduxState
+});
+
 export default connect(mapReduxStateToProps)(Feelings);

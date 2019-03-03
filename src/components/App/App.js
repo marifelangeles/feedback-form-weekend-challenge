@@ -37,7 +37,8 @@ class App extends Component {
   }
 }
 
-const mapReduxStateToProps = (reduxState) => {
-  return reduxState;
-}
+const mapReduxStateToProps = (reduxState) => ({
+  reduxState
+});
+
 export default connect(mapReduxStateToProps)(App);

@@ -22,7 +22,7 @@ class Understanding extends Component {
             input: event.target.value
         });
     }
-    
+
     render() {
         return (
             <div>
@@ -45,13 +45,14 @@ class Understanding extends Component {
                     </label>
                     <button onClick={this.handleClick}>Next</button>
                 </div>
-            <Review understanding={this.state.input}/>
+            <Review />
             </div>
         );
     }
 }
 
-const mapReduxStateToProps = (reduxState) => {
-    return reduxState;
-}
+const mapReduxStateToProps = (reduxState) => ({
+    reduxState
+});
+
 export default connect(mapReduxStateToProps)(Understanding);
