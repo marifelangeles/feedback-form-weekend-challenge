@@ -11,7 +11,7 @@ class Review extends Component {
         return (
             <div>
                 <div>
-                    
+                    <h2>Thank you!</h2>
                     <button onClick={this.handleClick}>Leave New Feedback</button>
                 </div>
             </div>
