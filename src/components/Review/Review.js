@@ -3,25 +3,24 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 
 class Review extends Component {
-    componentDidMount() {
-        this.getFeedback();
-    }
+    
 
-    getFeedback = () => {
-        console.log('in getFeedback');
+    saveFeedback = () => {
+        console.log('in saveFeedback');
         axios({
-            method: 'GET',
-            url: '/feedback'
-        }).then( response => {
-            // response.data is an array with object 
-            console.log('response from GET', response.data);
+            method: 'POST',
+            url: '/feedback',
+            data: this.props.reduxState.result
+        }).then( result => {
+            console.log('back from POST', result);
         }).catch(error => {
-            console.log('error with GET /feedback', error);
-            alert('error with GET /feedback');
+            console.log('error with POST /feedback', error);
+            alert('error with POST /feedback');
         })
     }
     handleClick = () => {
         console.log('/review submit clicked');
+        this.saveFeedback();
         this.props.history.push('/success');
     }
 

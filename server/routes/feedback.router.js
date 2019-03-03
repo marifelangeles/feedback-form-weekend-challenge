@@ -3,9 +3,12 @@ const router = express.Router();
 const pool = require('../modules/pool');
 
 
-router.get('/', (req, res) => {
-    console.log('GET /feedback');
-    pool.query(`SELECT * FROM "feedback";`)
+router.post('/', (req, res) => {
+    console.log('POST /feedback', req.body);
+    pool.query(`INSERT INTO "feedback" 
+                ("feeling", "understanding", "support", "comments")
+                VALUES ($1, $2, $3, $4);`, 
+        [req.body.feeling, req.body.understanding, req.body.support, req.body.comments] )
         .then(result => {
             res.send(result.rows);
         }).catch(error => {
