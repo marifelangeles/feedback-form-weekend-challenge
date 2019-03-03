@@ -31,7 +31,7 @@ class Review extends Component {
             this.resetFeedback();
         }).catch(error => {
             console.log('error with POST /feedback', error);
-            alert('error with POST /feedback');
+            alert('Missing information. Answer all questions.');
         })
     }
 
