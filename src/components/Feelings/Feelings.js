@@ -5,25 +5,26 @@ import Review from '../Review/Review';
 
 class Feelings extends Component {
 
-    state = {
-        input: '',
-    }
+    
 
     handleClick = () => {
         console.log('/feelings next clicked');
         // dispatch feeling input
-        let action = {type: 'SET_FEELING', payload: this.state.input}
-        this.props.dispatch(action);
+        // let action = {type: 'SET_FEELING', payload: this.state.input}
+        // this.props.dispatch(action);
         // direct user to understanding form
         this.props.history.push('/understanding');
     }
 
     handleChange = (event) => {
         console.log(event.target.value);
-        this.setState({
-            input: event.target.value
-        });
+        // this.setState({
+        //     input: event.target.value
+        // });
+        let action = { type: 'UPDATE_FEEDBACK', payload: event.target.value, propertyName: 'feeling'}
+        this.props.dispatch(action);
     }
+
     render() {
         return (
             <div>

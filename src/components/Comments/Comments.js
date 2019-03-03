@@ -3,23 +3,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Review from '../Review/Review';
 class Comments extends Component {
-    state = {
-        input: '',
-    }
-
+    
     handleClick = () => {
         console.log('/comments next clicked');
-        // dispatch comments input
-        let action = { type: 'SET_COMMENTS', payload: this.state.input }
-        this.props.dispatch(action);
         this.props.history.push('/review');
     }
 
     handleChange = (event) => {
         console.log(event.target.value);
-        this.setState({
-            input: event.target.value
-        });
+        let action = { type: 'UPDATE_FEEDBACK', payload: event.target.value, propertyName: 'comments' }
+        this.props.dispatch(action);
+
     }
 
     render() {

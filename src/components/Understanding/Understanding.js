@@ -4,23 +4,17 @@ import { connect } from 'react-redux';
 import Review from '../Review/Review';
 
 class Understanding extends Component {
-    state = {
-        input: '',
-    }
+    
 
     handleClick = () => {
         console.log('/understanding next clicked');
-        // dispatch understanding input
-        let action = { type: 'SET_UNDERSTANDING', payload: this.state.input }
-        this.props.dispatch(action);
         this.props.history.push('/support');
     }
 
     handleChange = (event) => {
         console.log(event.target.value);
-        this.setState({
-            input: event.target.value
-        });
+        let action = { type: 'UPDATE_FEEDBACK', payload: event.target.value, propertyName: 'understanding' }
+        this.props.dispatch(action);
     }
 
     render() {
