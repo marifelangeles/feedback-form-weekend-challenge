@@ -17,10 +17,18 @@ const result = (state = {}, action) => {
     return state;
 }
 
+const history = (state = [], action) => {
+    if (action.type === 'FEEDBACK_HISTORY') {
+        return action.payload;
+    }
+    return state;
+}
+
 
 const storeInstance = createStore( 
     combineReducers({
         result,
+        history,
     }),
     applyMiddleware(logger),
 )
