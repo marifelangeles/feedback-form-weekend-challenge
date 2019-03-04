@@ -49,7 +49,6 @@ class Admin extends Component {
         if (confirmFeedback === true) {
             this.deleteFeedback(feedbackID);
         } 
-              
     }
 
     
@@ -79,7 +78,7 @@ class Admin extends Component {
                                 <td>{feedback.feeling}</td>
                                 <td>{feedback.understanding}</td>
                                 <td>{feedback.support}</td>
-                                <td>{feedback.comments} description</td>
+                                <td>{feedback.comments}</td>
                                 <td>
                                     <button onClick={ () => this.handleDeleteClick(feedback.id)}>Delete</button>
                                 </td>
