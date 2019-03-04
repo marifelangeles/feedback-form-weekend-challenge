@@ -59,10 +59,10 @@ class Review extends Component {
         for (const entry of resultEntries) {
             console.log('entry', entry);
 
-            if (resultEntries.length < 4 || entry === '') {
-                button = <button onClick={this.handleClick} disabled>Incomplete</button>
-            } else {
+            if (resultEntries.length === 4 && entry !== '') {
                 button = <button onClick={this.handleClick}>Submit</button>
+            } else {
+                button = <button onClick={this.handleClick} disabled>Incomplete</button>
             }
         }
 

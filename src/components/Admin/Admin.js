@@ -25,6 +25,29 @@ class Admin extends Component {
         })
     }
 
+    handleDeleteClick = () => {
+        console.log('in handleDeleteClick');
+        // this.deleteFeedback();
+        
+    }
+
+    deleteFeedback = (event) => {
+        console.log('in deleteFeedback');
+        let id = event.target.value;
+        axios({
+            method: 'DELETE',
+            url: `/feedback/` + id
+        }).then(response => {
+            console.log('back from DELETE /feedback', response.data);
+            // response.data will be an array of objects
+            let action = { type: 'DELETE_HISTORY', payload: response.data }
+            this.props.dispatch(action);
+        }).catch(error => {
+            console.log('error with DELETE', error);
+            alert('error with DELETE');
+        })
+    }
+
     
     render() {
         return (
@@ -50,7 +73,7 @@ class Admin extends Component {
                                 <td>{feedback.support}</td>
                                 <td>{feedback.comments} description</td>
                                 <td>
-                                    <button>Delete</button>
+                                    <button value={feedback.id} onClick={this.handleDeleteClick}>Delete</button>
                                 </td>
                             </tr>
                         )}
