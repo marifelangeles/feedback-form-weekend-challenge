@@ -20,6 +20,8 @@ const result = (state = {}, action) => {
 const history = (state = [], action) => {
     if (action.type === 'FEEDBACK_HISTORY') {
         return action.payload;
+    } else if (action.type === 'DELETE_HISTORY') {
+        return action.payload;
     }
     return state;
 }

@@ -25,28 +25,30 @@ class Admin extends Component {
         })
     }
 
-    handleDeleteClick = () => {
+    handleDeleteClick = feedbackID => {
         console.log('in handleDeleteClick');
-        // this.deleteFeedback();
+        console.log('feedbackID', feedbackID);
         
-    }
-
-    deleteFeedback = (event) => {
-        console.log('in deleteFeedback');
-        let id = event.target.value;
         axios({
             method: 'DELETE',
-            url: `/feedback/` + id
+            url: `/feedback/` + feedbackID
         }).then(response => {
-            console.log('back from DELETE /feedback', response.data);
+            console.log('back from DELETE /feedback', response);
             // response.data will be an array of objects
-            let action = { type: 'DELETE_HISTORY', payload: response.data }
-            this.props.dispatch(action);
+            // let action = { type: 'DELETE_HISTORY', payload: response.data }
+            // this.props.dispatch(action);
         }).catch(error => {
             console.log('error with DELETE', error);
             alert('error with DELETE');
-        })
+        })        
     }
+
+    // deleteFeedback = (feedbackID) => {
+    //     console.log('in deleteFeedback');
+    //     console.log('feedbackID', feedbackID);
+        
+        
+    // }
 
     
     render() {
@@ -73,7 +75,7 @@ class Admin extends Component {
                                 <td>{feedback.support}</td>
                                 <td>{feedback.comments} description</td>
                                 <td>
-                                    <button value={feedback.id} onClick={this.handleDeleteClick}>Delete</button>
+                                    <button onClick={ () => this.handleDeleteClick(feedback.id)}>Delete</button>
                                 </td>
                             </tr>
                         )}
