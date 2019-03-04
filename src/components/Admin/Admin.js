@@ -45,8 +45,11 @@ class Admin extends Component {
         console.log('feedbackID', feedbackID);
 
         // Prompt the user to confirm prior to deleting the feedback from the database
-        this.deleteFeedback(feedbackID);
-                
+        let confirmFeedback = window.confirm('Are you sure you want to delete this feedback?');
+        if (confirmFeedback === true) {
+            this.deleteFeedback(feedbackID);
+        } 
+              
     }
 
     
