@@ -34,9 +34,8 @@ class Admin extends Component {
             url: `/feedback/` + feedbackID
         }).then(response => {
             console.log('back from DELETE /feedback', response);
-            // response.data will be an array of objects
-            // let action = { type: 'DELETE_HISTORY', payload: response.data }
-            // this.props.dispatch(action);
+            // display updated list after deleting feedback row
+            this.getfeedback();
         }).catch(error => {
             console.log('error with DELETE', error);
             alert('error with DELETE');
