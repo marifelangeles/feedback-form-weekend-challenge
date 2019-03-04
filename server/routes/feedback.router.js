@@ -12,8 +12,20 @@ router.post('/', (req, res) => {
         .then(result => {
             res.send(result.rows);
         }).catch(error => {
+            console.log('error with POST /feedback', error);
+            res.sendStatus(500);
+        })
+});
+
+router.get('/', (req, res) => {
+    console.log('GET /feedback');
+    pool.query(`SELECT * FROM "feedback";`)
+        .then(response => {
+            res.send(response.rows);
+        }).catch(error => {
             console.log('error with GET /feedback', error);
             res.sendStatus(500);
         })
-})
+});
+
 module.exports = router;
