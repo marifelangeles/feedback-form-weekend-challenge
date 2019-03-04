@@ -25,13 +25,11 @@ class Admin extends Component {
         })
     }
 
-    handleDeleteClick = feedbackID => {
-        console.log('in handleDeleteClick');
-        console.log('feedbackID', feedbackID);
-        
+    deleteFeedback = (id) => {
+        console.log('in deleteFeedback');
         axios({
             method: 'DELETE',
-            url: `/feedback/` + feedbackID
+            url: `/feedback/` + id
         }).then(response => {
             console.log('back from DELETE /feedback', response);
             // display updated list after deleting feedback row
@@ -39,15 +37,21 @@ class Admin extends Component {
         }).catch(error => {
             console.log('error with DELETE', error);
             alert('error with DELETE');
-        })        
+        });
     }
 
-    // deleteFeedback = (feedbackID) => {
-    //     console.log('in deleteFeedback');
-    //     console.log('feedbackID', feedbackID);
-        
-        
-    // }
+    handleDeleteClick = feedbackID => {
+        console.log('in handleDeleteClick');
+        console.log('feedbackID', feedbackID);
+
+        // Prompt the user to confirm prior to deleting the feedback from the database
+        this.deleteFeedback(feedbackID);
+                
+    }
+
+    
+
+    
 
     
     render() {
