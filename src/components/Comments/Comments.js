@@ -23,8 +23,8 @@ class Comments extends Component {
             <div>
                 <HeaderForm />
                 <h2>Any comments you want to leave?</h2>
-                <div onChange={this.handleChange}>
-                    <input type="text" placeholder="Leave comments here" />
+                <div>
+                    <input type="text" placeholder="Leave comments here" value={this.props.reduxState.result.comments} onChange={this.handleChange}/>
                     <button onClick={this.handleClick}>Next</button>
                 </div>
                 <Review />
