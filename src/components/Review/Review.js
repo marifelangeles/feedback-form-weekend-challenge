@@ -31,7 +31,7 @@ class Review extends Component {
             this.resetFeedback();
         }).catch(error => {
             console.log('error with POST /feedback', error);
-            alert('error with POST /feedback');
+            alert('Missing information. Answer all questions.');
         })
     }
 
@@ -45,21 +45,27 @@ class Review extends Component {
     
 
     render() {
+        
+        let button;
         // convert objects to array in order to loop through entries in form
         // https://zellwk.com/blog/looping-through-js-objects/
         let result = this.props.reduxState.result;
         console.log('result', result);
-        let resultEntries = Object.keys(result);
+        let resultEntries = Object.values(result);
         console.log('resultEntries', resultEntries);
-        
         // check if all entries are complete
         // if entry is incomplete, object will not be added to redux state
-        let button;
-        if (resultEntries < 4) {
-            button = <button onClick={this.handleClick} disabled>Incomplete</button>
-        } else {
-            button = <button onClick={this.handleClick}>Submit</button>
+
+        for (const entry of resultEntries) {
+            console.log('entry', entry);
+
+            if (resultEntries.length === 4 && entry !== '') {
+                button = <button onClick={this.handleClick}>Submit</button>
+            } else {
+                button = <button onClick={this.handleClick} disabled>Incomplete</button>
+            }
         }
+
         
         
 

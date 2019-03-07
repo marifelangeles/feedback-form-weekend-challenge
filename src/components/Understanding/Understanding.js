@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 // import axios from 'axios';
 import { connect } from 'react-redux';
 import Review from '../Review/Review';
+import HeaderForm from '../HeaderForm/HeaderForm';
+
 
 class Understanding extends Component {
     
@@ -20,6 +22,7 @@ class Understanding extends Component {
     render() {
         return (
             <div>
+                <HeaderForm />
                 <h2>How well are you understanding the content?</h2>
                 <div onChange={this.handleChange}>
                     <label>

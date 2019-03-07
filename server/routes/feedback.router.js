@@ -12,8 +12,35 @@ router.post('/', (req, res) => {
         .then(result => {
             res.send(result.rows);
         }).catch(error => {
+            console.log('error with POST /feedback', error);
+            res.sendStatus(500);
+        })
+});
+
+router.get('/', (req, res) => {
+    console.log('GET /feedback');
+    pool.query(`SELECT * FROM "feedback"
+                ORDER BY "date" DESC;`)
+        .then(response => {
+            res.send(response.rows);
+        }).catch(error => {
             console.log('error with GET /feedback', error);
             res.sendStatus(500);
         })
-})
+});
+
+router.delete('/:id', (req, res) => {
+    console.log('DELETE /feedback');
+    console.log('id', req.params.id);
+    
+    pool.query(`DELETE FROM "feedback"
+                WHERE "id" = $1;`, [req.params.id])
+        .then( () => {
+            res.sendStatus(200);
+        }).catch(error => {
+            console.log('error with DELETE /feedback', error);
+            res.sendStatus(500);
+        })
+});
+
 module.exports = router;
